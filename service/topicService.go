@@ -10,3 +10,10 @@ func QueryPageInfo(c *gin.Context) (info *PageInfo, err error) {
 	}
 	return queryPageInfoFlow.Do()
 }
+
+func PostPage(c *gin.Context) error {
+	postPageFlow := &PostPageFlow{
+		c: c,
+	}
+	return postPageFlow.Do()
+}

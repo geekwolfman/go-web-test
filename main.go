@@ -15,6 +15,10 @@ func main() {
 		data := controller.QueryPageInfo(c)
 		c.JSON(200, data)
 	})
+	r.POST("/community/page/post/", func(c *gin.Context) {
+		data := controller.PostPage(c)
+		c.JSON(200, data)
+	})
 	err := r.Run()
 	// 监听并在 0.0.0.0:8080 上启动服务
 	if err != nil {

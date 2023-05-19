@@ -20,3 +20,16 @@ func QueryPageInfo(c *gin.Context) *PageData {
 		Data: pageInfo,
 	}
 }
+
+func PostPage(c *gin.Context) *PageData {
+	if err := service.PostPage(c); err != nil {
+		return &PageData{
+			Code: 1,
+			Msg:  fmt.Sprintf("post page error, error is %v", err),
+		}
+	}
+	return &PageData{
+		Code: 200,
+		Msg:  "success",
+	}
+}
